@@ -1,11 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/big-query-practice-412523/demo-flask-app:$COMMIT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/gcp-practice-413501/demo-flask-app:$COMMIT_SHA', '.']
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/big-query-practice-412523/demo-flask-app:$COMMIT_SHA']
+  args: ['push', 'gcr.io/gcp-practice-413501/demo-flask-app:$COMMIT_SHA']
 
-- name: 'gcr.io/big-query-practice-412523/demo-flask-app:$COMMIT_SHA'
+- name: 'gcr.io/gcp-practice-413501/demo-flask-app:$COMMIT_SHA'
   entrypoint: 'bash'
   args:
    - '-c'
@@ -19,12 +19,12 @@ steps:
    - 'deploy'
    - 'py-bq-load'
    - '--image'
-   - 'gcr.io/big-query-practice-412523/demo-flask-app:$COMMIT_SHA'
+   - 'gcr.io/gcp-practice-413501/demo-flask-app:$COMMIT_SHA'
    - '--region'
    - 'us-central1'
    - '--allow-unauthenticated'
 images:
-- 'gcr.io/big-query-practice-412523/demo-flask-app:$COMMIT_SHA'
+- 'gcr.io/gcp-practice-413501/demo-flask-app:$COMMIT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY
